@@ -1,0 +1,21 @@
+name: 'data_observability_platform'
+version: '1.0.0'
+config-version: 2
+
+profile: 'data_observability_platform'
+
+model-paths: ["models"]
+test-paths: ["tests"]
+macro-paths: ["macros"]
+target-path: "target"
+clean-targets: ["target", "dbt_packages"]
+
+models:
+  data_observability_platform:
+    staging:
+      +materialized: view
+    marts:
+      +materialized: table
+
+on-run-end:
+  - "{{ check_untested_models() }}"
