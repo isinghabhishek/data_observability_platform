@@ -1,0 +1,7 @@
+datasets:
+  - name: marts.orders
+    freshness_sla: 3600
+    warning_threshold: 0.8
+  - name: marts.customers
+    freshness_sla: 86400
+    warning_threshold: 0.75
